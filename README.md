@@ -1,1 +1,1 @@
-https://supertsatura.github.io/my-site/
+https://supertsatura.github.io/my-site/src/index.html
