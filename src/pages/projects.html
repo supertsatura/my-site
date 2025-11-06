@@ -28,9 +28,9 @@
             <div class="card project-card h-100">
                 <img src="../images/mysite.png" class="card-img-top" alt="Проект 1">
                 <div class="card-body">
-                    <h5 class="card-title">Проект 1</h5>
+                    <h5 class="card-title">Личный сайт</h5>
                     <p class="card-text">Сайт-портфолио на HTML, CSS и Bootstrap с адаптивным дизайном.</p>
-                    <a href="#" class="btn btn-outline-dark">Подробнее</a>
+                    <button type="button" class="btn btn-outline-dark" data-bs-toggle="modal" data-bs-target="#project1Modal">Подробнее</button>
                 </div>
             </div>
         </div>
@@ -41,7 +41,7 @@
                 <div class="card-body">
                     <h5 class="card-title">Todo-приложение</h5>
                     <p class="card-text">Приложение для управления задачами с использованием JavaScript.</p>
-                    <a href="#" class="btn btn-outline-dark">Подробнее</a>
+                    <button type="button" class="btn btn-outline-dark" data-bs-toggle="modal" data-bs-target="#project2Modal">Подробнее</button>
                 </div>
             </div>
         </div>
@@ -52,7 +52,7 @@
                 <div class="card-body">
                     <h5 class="card-title">Интернет-магазин</h5>
                     <p class="card-text">Прототип интернет-магазина с корзиной товаров и фильтрацией.</p>
-                    <a href="#" class="btn btn-outline-dark">Подробнее</a>
+                    <button type="button" class="btn btn-outline-dark" data-bs-toggle="modal" data-bs-target="#project3Modal">Подробнее</button>
                 </div>
             </div>
         </div>
@@ -60,9 +60,88 @@
     </div>
 </section>
 
+<!-- Модальные окна -->
+<div class="modal fade" id="project1Modal" tabindex="-1" aria-labelledby="project1ModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="project1ModalLabel">Сайт-портфолио</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <p>Этот проект представляет собой личный сайт-портфолио, разработанный с использованием современных веб-технологий.</p>
+                <p><strong>Технологии:</strong> HTML5, CSS3, Bootstrap 5, JavaScript</p>
+                <p><strong>Особенности:</strong></p>
+                <ul>
+                    <li>Адаптивный дизайн для всех устройств</li>
+                    <li>Чистый и современный интерфейс</li>
+                    <li>Оптимизированная производительность</li>
+                    <li>Кроссбраузерная совместимость</li>
+                </ul>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-outline-dark" data-bs-dismiss="modal">Закрыть</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="modal fade" id="project2Modal" tabindex="-1" aria-labelledby="project2ModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="project2ModalLabel">Todo-приложение</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <p>Интерактивное приложение для управления задачами с возможностью добавления, редактирования и удаления.</p>
+                <p><strong>Технологии:</strong> HTML, CSS, JavaScript, Local Storage</p>
+                <p><strong>Функциональность:</strong></p>
+                <ul>
+                    <li>Добавление новых задач</li>
+                    <li>Отметка выполненных задач</li>
+                    <li>Редактирование существующих задач</li>
+                    <li>Удаление задач</li>
+                    <li>Сохранение данных в браузере</li>
+                </ul>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-outline-dark" data-bs-dismiss="modal">Закрыть</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="modal fade" id="project3Modal" tabindex="-1" aria-labelledby="project3ModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="project3ModalLabel">Интернет-магазин</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <p>Прототип интернет-магазина с полным функционалом для покупок онлайн.</p>
+                <p><strong>Технологии:</strong> HTML, CSS, JavaScript, Bootstrap</p>
+                <p><strong>Возможности:</strong></p>
+                <ul>
+                    <li>Каталог товаров с категориями</li>
+                    <li>Система фильтрации и поиска</li>
+                    <li>Корзина покупок</li>
+                    <li>Оформление заказа</li>
+                    <li>Адаптивный дизайн</li>
+                </ul>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-outline-dark" data-bs-dismiss="modal">Закрыть</button>
+            </div>
+        </div>
+    </div>
+</div>
 <footer>
     © 2025 Контакты
 </footer>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js">
 
+</script>
 </body>
 </html>
