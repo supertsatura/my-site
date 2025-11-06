@@ -104,7 +104,11 @@
         const taskForm = document.getElementById("taskForm");
         const modalEl = document.getElementById("addTaskModal");
 
-        // Добавление новой записи
+        // Загружаем сохранённые задачи при открытии страницы
+        const savedTasks = JSON.parse(localStorage.getItem("tasks") || "[]");
+        savedTasks.forEach(task => addTaskToTable(task));
+
+        // При нажатии "Добавить"
         addTaskBtn.addEventListener("click", () => {
             const date = document.getElementById("taskDate").value;
             const name = document.getElementById("taskName").value.trim();
@@ -115,37 +119,48 @@
                 return;
             }
 
-            // Создаём строку таблицы
-            const row = document.createElement("tr");
-            row.innerHTML = `
-            <td class="ps-3">${date}</td>
-            <td class="ps-3">${name}</td>
-            <td class="text-center pe-3">
-                <span class="badge ${status === "completed" ? "bg-success" : status === "inProgress" ? "bg-warning text-dark" : "bg-secondary"}">
-                    ${status === "completed" ? "Выполнено" : status === "inProgress" ? "В процессе" : "Запланировано"}
-                </span>
-                <button class="btn btn-sm btn-outline-danger ms-2 delete-btn">✖</button>
-            </td>
-        `;
+            const newTask = { date, name, status };
+            addTaskToTable(newTask);
 
-            // Добавляем в таблицу
-            tableBody.appendChild(row);
+            // Сохраняем в localStorage
+            savedTasks.push(newTask);
+            localStorage.setItem("tasks", JSON.stringify(savedTasks));
 
             // Очищаем форму
             taskForm.reset();
 
-            // Закрываем модальное окно
+            // Закрываем модалку
             const modal = bootstrap.Modal.getOrCreateInstance(modalEl);
             modal.hide();
 
-            // Простое уведомление
-            alert("Запись успешно добавлена!");
+            //alert("Запись успешно добавлена!");
+        });
 
-            // Удаление строки по кнопке ✖
+        // Функция добавления строки в таблицу
+        function addTaskToTable(task) {
+            const row = document.createElement("tr");
+            row.innerHTML = `
+            <td class="ps-3">${task.date}</td>
+            <td class="ps-3">${task.name}</td>
+            <td class="text-center pe-3">
+                <span class="badge ${task.status === "completed" ? "bg-success" : task.status === "inProgress" ? "bg-warning text-dark" : "bg-secondary"}">
+                    ${task.status === "completed" ? "Выполнено" : task.status === "inProgress" ? "В процессе" : "Запланировано"}
+                </span>
+                <button class="btn btn-sm btn-outline-danger ms-2 delete-btn">✖</button>
+            </td>
+        `;
+            tableBody.appendChild(row);
+
+            // Удаление записи
             row.querySelector(".delete-btn").addEventListener("click", () => {
                 row.remove();
+                const index = savedTasks.findIndex(t => t.date === task.date && t.name === task.name && t.status === task.status);
+                if (index !== -1) {
+                    savedTasks.splice(index, 1);
+                    localStorage.setItem("tasks", JSON.stringify(savedTasks));
+                }
             });
-        });
+        }
     });
 </script>
 </body>
