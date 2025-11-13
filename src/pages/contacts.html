@@ -58,10 +58,11 @@
             return;
         }
 
-        const emailPattern = /^\S+@\S+\.\S+$/;
+        const emailPattern = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
         if (!emailPattern.test(email)) {
             alert('Введите корректный email.');
             event.preventDefault();
+            return;
         }
 
         alert("Ваше письмо успешно отправлено!");
